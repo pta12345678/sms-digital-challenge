@@ -1,4 +1,5 @@
 #!/usr/bin/env ruby
+# frozen_string_literal: true
 
 require './libs/image_processing/mini_magick_repository'
 require './libs/image_processing/image_service'

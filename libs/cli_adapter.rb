@@ -1,7 +1,8 @@
-require "./libs/parse_cli_options"
+# frozen_string_literal: true
+
+require './libs/parse_cli_options'
 
 class CliAdapter
-
   def initialize(use_case)
     @use_case = use_case
   end

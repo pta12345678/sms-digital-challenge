@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 class FetcherService
   def initialize(fetcher_repository)
     @fetcher_repository = fetcher_repository
