@@ -14,7 +14,7 @@ class FlickrRepository
   def download_by_tags(tags)
     tags.collect {|tag|
       uri = self.find_photo_by_tag(tag)
-      self.write_uri_to_file(uri)
+      self._write_uri_to_file(uri)
     }
   end
 
@@ -35,7 +35,7 @@ class FlickrRepository
     return x[1].source
   end
 
-  def write_uri_to_file(uri)
+  def _write_uri_to_file(uri)
     tmpfile = File.join(Dir.tmpdir(), SecureRandom.uuid)
 
     URI.open(uri) do |image|

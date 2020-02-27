@@ -7,7 +7,7 @@ The created collage will be written to file.
 * Ruby
 * bundler
 * `ImageMagick` to crop images
-* Unix like (Windows image crop libraries are a pain to setup)
+* Unix* (Windows image crop libraries are a pain to setup, so spare yourself this trouble if possible)
 
 ## building
 `bundler install`
@@ -32,6 +32,6 @@ Collage has been written to /tmp/7553d630-a29d-4a57-a8a3-e453864dec9f
 
 * Call with valid keywords, but too few and an output path
 ```bash
-$ ruby bin/entrypoint.rb -k cheese
-Collage has been written to /tmp/7553d630-a29d-4a57-a8a3-e453864dec9f
+$ ruby bin/entrypoint.rb -k cheese -o xxx
+Collage has been written to /home/phil/code/sms-digital-challenge/xxx
 ```

@@ -8,7 +8,6 @@ class MiniMagickRepository
   end
 
   def combine_images(image_paths, target_filename)
-
     MiniMagick::Tool::Convert.new do |convert|
       convert.append.+
       image_paths.each {|image_path|

@@ -14,8 +14,4 @@ class FetcherService
   def find_hot_tags(amount)
     @fetcher_repository.find_hot_tags(amount)
   end
-
-  def write_uri_to_file(uri)
-    @fetcher_repository.write_uri_to_file(uri)
-  end
 end
