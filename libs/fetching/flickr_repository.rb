@@ -6,10 +6,11 @@ require 'tmpdir'
 require 'securerandom'
 
 class FlickrRepository
-  def initialize
+  def initialize(logger_service)
     FlickRaw.api_key = ENV['FLICKR_API_KEY']
     FlickRaw.shared_secret = ENV['FLICKR_SHARED_SECRET']
     @flickr = FlickRaw::Flickr.new
+    @logger_service = logger_service
   end
 
   def download_by_tags(tags)
@@ -20,12 +21,14 @@ class FlickrRepository
   end
 
   def find_hot_tags(amount)
+    @logger_service.verbose("Attempting to find #{amount} hot tags")
     # we take more and sample afterwards for better randomness
     response = @flickr.tags.getHotList(count: amount * 10)
     response.tag.sample(amount).collect(&:_content)
   end
 
   def find_photo_by_tag(tag)
+    @logger_service.verbose("Attempting to find photos by tag \"#{tag}\"")
     found_images = @flickr.photos.search(tags: [tag], per_page: 1, sort: 'interestingness-desc')
     if found_images.length <= 0
       raise "Could not find any photo for tag '#{tag}'"

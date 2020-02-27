@@ -2,10 +2,11 @@
 
 NEEDED_TAGS = 10
 class UseCase
-  def initialize(wordlist_service, image_fetcher_service, image_service)
+  def initialize(logger_service, wordlist_service, image_fetcher_service, image_service)
     @wordlist_service = wordlist_service
     @image_fetcher_service = image_fetcher_service
     @image_service = image_service
+    @logger_service = logger_service
   end
 
   def build_verified_tags(passed_keywords = [])
@@ -26,7 +27,7 @@ class UseCase
     end
 
     written_to = @image_service.combine_images(image_paths, collage_path)
-    puts "Collage has been written to #{written_to}"
+    @logger_service.info("Collage has been written to #{written_to}")
   end
 
   def _is_tag_valid(tag)

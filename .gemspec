@@ -11,6 +11,6 @@ Gem::Specification.new do |s|
   s.email         = 'philipp.tusch@gmx.de'
   s.files         = `git ls-files -z`.split("\x0")
   s.executables   = 'sms-digital-flickr-collage'
-  s.require_paths = ['lib']
+  s.require_paths = ['libs']
   s.license       = 'MIT'
 end
