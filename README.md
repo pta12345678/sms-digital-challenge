@@ -26,6 +26,15 @@ The created collage will be written to file.
 * Export your shared API secret in the shell environment `FLICKR_SHARED_SECRET=xxx`
 
 ### Sample calls
+* Invoke the help for all possible options
+```bash
+$ ruby bin/sms-digital-flickr-collage -h
+Usage: sms-digital-flickr-collage [options]
+    -k, --keywords=KEYWORDS          Specify keywords to query for, separated by comma.
+    -o, --output=OUTPUT              Specify the output path for the collage
+    -v, --verbose                    Enable verbosity
+```
+
 * Call with invalid keywords
 ```bash
 $ ruby bin/sms-digital-flickr-collage -k yyyyyyyyyyyyyyyyyyyyyyyy
@@ -43,3 +52,15 @@ Collage has been written to /tmp/7553d630-a29d-4a57-a8a3-e453864dec9f
 $ ruby bin/sms-digital-flickr-collage -k cheese -o xxx
 Collage has been written to /home/phil/code/sms-digital-challenge/xxx
 ```
+
+## Design choices
+
+The applications follows a simple, yet effective approach:
+Adapter -> Use Case -> Service -> Repository
+
+It's extremely easy to put all elements together and change repositories on the fly as well.
+Config becomes code and entire new sub branches of the code could be loaded if a defined condition (license etc.) is met.
+
+## Limitations
+* It was never stated how exactly the grid has to be, so I choose a 10x1 grid which is still a grid
+* The calls to flickr are duplicated since each tag is checked first (for existence) and then to get the photo. Memoizing and a simple cache could help
