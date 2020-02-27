@@ -2,7 +2,10 @@ require 'optparse'
 
 class ParseCliOptions
   def parse
-    options = {}
+    options = {
+      :keywords => [],
+      :output_path => nil,
+    }
     OptionParser.new do |opts|
       opts.on("-k=KEYWORDS", "--keywords=KEYWORDS", "Specify keywords to query for, separated by comma.") do |raw_keywords|
         options[:keywords] = raw_keywords.split(",")

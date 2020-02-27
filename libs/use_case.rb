@@ -10,7 +10,7 @@ class UseCase
   def build_verified_tags(passed_keywords = [])
     other_keywords = @wordlist_service.get_words(10 - passed_keywords.length)
     keywords = passed_keywords + other_keywords
-    verified_tags = self.verify_tags(keywords)
+    verified_tags = self._verify_tags(keywords)
 
     if verified_tags.length == @@NEEDED_TAGS then
       return verified_tags
@@ -41,7 +41,7 @@ class UseCase
 
   def _verify_tags(tags)
     tags.select{|tag|
-      self.is_tag_valid(tag)
+      self._is_tag_valid(tag)
     }
   end
 end

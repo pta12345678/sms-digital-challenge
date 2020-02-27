@@ -1,9 +1,9 @@
 Gem::Specification.new do |s|
-  s.name          = 'sms-digital-challenge'
+  s.name          = 'sms-digital-challenge-flickr'
   s.version       = '0.1.0'
   s.date          = '2020-02-27'
-  s.summary       = "Solving a challenge to query some APIs"
-  s.description   = "Solving a challenge to query some APIs"
+  s.summary       = "Solving a challenge to query some images"
+  s.description   = "Solving a challenge to query some images"
   s.authors       = ["Philipp Tusch"]
   s.email         = 'philipp.tusch@gmx.de'
   s.files         = `git ls-files -z`.split("\x0")

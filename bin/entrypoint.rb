@@ -1,3 +1,5 @@
+#!/usr/bin/env ruby
+
 require './libs/image_processing/mini_magick_repository'
 require './libs/image_processing/image_service'
 require './libs/wordlist_finder/wordlist_repository'
