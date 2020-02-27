@@ -5,7 +5,8 @@ The created collage will be written to file.
 
 ## Requirements
 * Ruby
-* bundler 
+* bundler
+* `ImageMagick` to crop images
 
 ## building
 `bundler install`

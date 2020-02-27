@@ -1,0 +1,12 @@
+frog
+cat
+dog
+magic
+food
+ice
+car
+plane
+train
+eye
+hair
+rupee
