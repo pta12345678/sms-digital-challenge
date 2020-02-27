@@ -64,3 +64,4 @@ Config becomes code and entire new sub branches of the code could be loaded if a
 ## Limitations
 * It was never stated how exactly the grid has to be, so I choose a 10x1 grid which is still a grid
 * The calls to flickr are duplicated since each tag is checked first (for existence) and then to get the photo. Memoizing and a simple cache could help
+* Proper exit codes and messages for all sort of issues because it wasn't asked for
