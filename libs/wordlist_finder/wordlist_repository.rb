@@ -1,9 +1,9 @@
 # frozen_string_literal: true
 
+WORDLIST_PATH = './sample_tags.txt'
 class WordlistRepository
-  @@wordlist_path = './sample_tags.txt'
   def get_words(amount)
     # Works best with small lists!
-    File.readlines(@@wordlist_path).sample(amount).collect(&:chomp)
+    File.readlines(WORDLIST_PATH).sample(amount).collect(&:chomp)
   end
 end

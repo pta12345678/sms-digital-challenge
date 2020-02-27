@@ -1,7 +1,7 @@
 # frozen_string_literal: true
 
+NEEDED_TAGS = 10
 class UseCase
-  @@NEEDED_TAGS = 10
   def initialize(wordlist_service, image_fetcher_service, image_service)
     @wordlist_service = wordlist_service
     @image_fetcher_service = image_fetcher_service
@@ -13,9 +13,9 @@ class UseCase
     keywords = passed_keywords + other_keywords
     verified_tags = _verify_tags(keywords)
 
-    return verified_tags if verified_tags.length == @@NEEDED_TAGS
+    return verified_tags if verified_tags.length == NEEDED_TAGS
 
-    tags = @image_fetcher_service.find_hot_tags(@@NEEDED_TAGS - verified_tags.length)
+    tags = @image_fetcher_service.find_hot_tags(NEEDED_TAGS - verified_tags.length)
     build_verified_tags(tags)
   end
 

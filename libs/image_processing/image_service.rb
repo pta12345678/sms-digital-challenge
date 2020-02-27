@@ -16,7 +16,7 @@ class ImageService
                     File.join(Dir.tmpdir, SecureRandom.uuid)
                   else
                     target_filename
-    end
+                  end
 
     written_to = @image_repository.combine_images(image_paths, output_file)
     File.expand_path(written_to)
