@@ -1,5 +1,6 @@
-class LoggerService
+# frozen_string_literal: true
 
+class LoggerService
   def initialize(logger_repository)
     @logger_repository = logger_repository
   end
