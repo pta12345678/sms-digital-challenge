@@ -17,7 +17,6 @@ class MiniMagickRepository
       convert << target_filename
     end
 
-    p "output_file: #{target_filename}"
-    p "would combine but not now.."
+    target_filename
   end
 end

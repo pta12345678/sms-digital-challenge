@@ -6,8 +6,8 @@ require 'securerandom'
 class FlickrRepository
 
   def initialize()
-    FlickRaw.api_key = ""
-    FlickRaw.shared_secret = ""
+    FlickRaw.api_key = ENV["FLICKR_API_KEY"]
+    FlickRaw.shared_secret = ENV["FLICKR_SHARED_SECRET"]
     @flickr = FlickRaw::Flickr.new
   end
 
@@ -15,6 +15,14 @@ class FlickrRepository
     tags.collect {|tag|
       uri = self.find_photo_by_tag(tag)
       self.write_uri_to_file(uri)
+    }
+  end
+
+  def find_hot_tags(amount)
+    # we take more and sample afterwards for better randomness
+    response = @flickr.tags.getHotList(:count => amount * 10)
+    response.tag.sample(amount).collect {|tag|
+      tag._content
     }
   end
 
@@ -37,10 +45,4 @@ class FlickrRepository
     end
     return tmpfile
   end
-
 end
-
-#flick = FlickrRepository.new
-#uri = flick.find_photo_by_tag('cat')
-#path = flick.write_uri_to_file(uri)
-#flick.crop_image(path)

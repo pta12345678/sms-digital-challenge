@@ -8,6 +8,7 @@ class CliAdapter
 
   def start
     args = ParseCliOptions.new.parse
-    @use_case.create_collage_grid(args[:keywords], args[:output_path])
+    valid_tags = @use_case.build_verified_tags(args[:keywords])
+    @use_case.create_collage_grid(valid_tags, args[:output_path])
   end
 end

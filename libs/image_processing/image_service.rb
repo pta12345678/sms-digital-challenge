@@ -16,6 +16,7 @@ class ImageService
       target_filename
     end
 
-    @image_repository.combine_images(image_paths, output_file)
+    written_to = @image_repository.combine_images(image_paths, output_file)
+    File.expand_path(written_to)
   end
 end
